@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Custom routes
+Route::get('/table', function() {
+	return view('table', ['tableName' =>  'Unknow']);
+});
+Route::get('/table/{name}', function($name = '') {
+	return view('table', ['tableName' => $name]);
+});
