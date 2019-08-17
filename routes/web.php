@@ -22,3 +22,15 @@ Route::get('/table', function() {
 Route::get('/table/{name}', function($name = '') {
 	return view('table', ['tableName' => $name]);
 });
+
+Route::get('/admin/login', function () {
+    return view('admin/login', ['title'=> 'Admin Login portal', 'pageClass'=> 'admin-login']);
+});
+
+Route::get('/admin/profile', function () {
+    return view('admin/profile', ['title'=> 'Admin portal', 'pageClass'=> 'admin-profile']);
+});
+
+Route::get('/admin/user/list', function () {
+    return view('admin/user/list', ['title'=> 'User list', 'pageClass'=> 'user-list']);
+});
