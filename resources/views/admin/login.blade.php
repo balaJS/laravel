@@ -1,4 +1,5 @@
-@include('admin/sections/head')
+@extends('admin.app')
+@section('content')
     <div class="container pt-5">
       <!-- Row start-->
       <div class="row">
@@ -7,10 +8,10 @@
         </div>
         <div class="col-md-6">
           <h2 class="text-center">Admin login portal</h2>
-          {!! Form::open(['url' => '/admin/profile', 'class' => 'login_form']) !!}
+          {!! Form::open(['url' => '/admin/login', 'class' => 'login_form']) !!}
               <div class="form-group">
                 <!-- @csrf -->
-                @method('GET')
+                @method('POST')
 
                 {!! Form::label('email', 'Email:', ['class' => 'email_label']) !!}
                 {!! Form::email('email', $value = null, [
@@ -44,4 +45,4 @@
       </div>
       <!-- Row close -->
     </div>
-@include('admin/sections/footer')
+@endsection

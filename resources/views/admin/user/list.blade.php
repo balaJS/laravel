@@ -1,5 +1,5 @@
-@include('admin/sections/head')
-@include('admin/sections/header')
+@extends('admin.app')
+@section('content')
 <div class="container">
   <h2>{{ $title }}</h2>
   <p>This table contains user list.</p>
@@ -15,37 +15,25 @@
       </tr>
     </thead>
     <tbody>
+      @php
+        $count = 1;
+      @endphp
+      @foreach($users as $user)
       <tr>
-        <td>1</td>
-        <td>USER01</td>
-        <td>John</td>
-        <td>john@example.com</td>
-        <td>
+        <td> {{ $count }} </td>
+        <td> USER{{ $user->id }} </td>
+        <td> {{ $user->name }} </td>
+        <td> {{ $user->email }} </td>
+        <td data-user-id="{{ $user->id }}">
           <button class="btn btn-info"><i class="fa fa-edit"></i></button>
           <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>USER02</td>
-        <td>Mary</td>
-        <td>mary@example.com</td>
-        <td>
-          <button class="btn btn-info"><i class="fa fa-edit"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>USER03</td>
-        <td>July</td>
-        <td>july@example.com</td>
-        <td>
-          <button class="btn btn-info"><i class="fa fa-edit"></i></button>
-          <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-        </td>
-      </tr>
+      @php
+        $count++;
+      @endphp
+      @endforeach
     </tbody>
   </table>
 </div>
-@include('admin/sections/footer')
+@endsection

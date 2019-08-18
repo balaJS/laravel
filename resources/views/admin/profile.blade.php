@@ -1,5 +1,5 @@
-@include('admin/sections/head')
-@include('admin/sections/header')
+@extends('admin.app')
+@section('content')
 <section class="profile-wrapper">
   <div class="container">
     <!-- Main row start -->
@@ -16,4 +16,4 @@
     <!-- Main row close -->
   </div>
 </section>
-@include('admin/sections/footer')
+@endsection

@@ -23,14 +23,21 @@ Route::get('/table/{name}', function($name = '') {
 	return view('table', ['tableName' => $name]);
 });
 
-Route::get('/admin/login', function () {
-    return view('admin/login', ['title'=> 'Admin Login portal', 'pageClass'=> 'admin-login']);
-});
+Route::get('/admin/login', 'Auth@login_form');
 
-Route::get('/admin/profile', function () {
-    return view('admin/profile', ['title'=> 'Admin portal', 'pageClass'=> 'admin-profile']);
-});
+Route::post('/admin/login','Auth@login');
 
-Route::get('/admin/user/list', function () {
-    return view('admin/user/list', ['title'=> 'User list', 'pageClass'=> 'user-list']);
-});
+Route::any('/admin/logout', 'Auth@logout');
+
+Route::get('/admin/profile', 'Auth@show_profile');
+
+Route::resource('/admin/users', 'SiteUserController');
+
+// Route::get('/admin/user/list', function () {
+//     return view('admin/user/list', ['title'=> 'User list', 'pageClass'=> 'user-list']);
+// });
+
+// Route::group(['prefix' => 'admin'], function() {
+//     Auth::routes();
+// });
+// Route::get('/home', 'HomeController@index')->name('home');

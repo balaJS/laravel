@@ -13,7 +13,7 @@
                 <a class="nav-link" href="#">Gallery</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ URL('/admin/user/list') }}">User details</a>
+                <a class="nav-link" href="{{ URL('/admin/users/index') }}">User details</a>
               </li>
             </ul>
           </div>
@@ -26,7 +26,7 @@
                 <a class="nav-link" href="#">Site statics</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="{{ URL('/admin/logout') }}">Logout</a>
               </li>
             </ul>
           </div>
